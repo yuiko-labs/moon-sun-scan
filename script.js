@@ -28,10 +28,17 @@ form.addEventListener("submit", async (e) => {
       body: JSON.stringify({ date, time, place })
     });
 
-    const data = await res.json();
+    const rawText = await res.text();
+
+    let data;
+    try {
+      data = rawText ? JSON.parse(rawText) : {};
+    } catch {
+      data = { raw: rawText };
+    }
 
     if (!res.ok) {
-      throw new Error(data.error || "取得に失敗しました。");
+      throw new Error(JSON.stringify(data, null, 2));
     }
 
     resultEl.textContent = JSON.stringify(data, null, 2);
