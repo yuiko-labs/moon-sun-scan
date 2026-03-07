@@ -25,14 +25,17 @@ form.addEventListener("submit", async (e) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        date: date,
-        time: time,
-        place: place
-      })
+      body: JSON.stringify({ date, time, place })
     });
 
-    const data = await res.json();
+    const text = await res.text();
+
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      data = { raw_response: text };
+    }
 
     if (!res.ok) {
       throw new Error(JSON.stringify(data, null, 2));
@@ -40,6 +43,7 @@ form.addEventListener("submit", async (e) => {
 
     resultEl.textContent = JSON.stringify(data, null, 2);
     statusEl.textContent = "できたよ✨";
+
   } catch (err) {
     console.error(err);
     statusEl.textContent = "エラーが起きました。";
