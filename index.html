@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>魔女っ娘★月と太陽スキャン</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <h1>魔女っ娘★月と太陽スキャン</h1>
+      <p class="lead">生年月日・出生時間・出生地から、月と太陽の配置をスキャンするよ✨</p>
+
+      <form id="scan-form" class="form">
+        <label>
+          生年月日
+          <input type="date" id="birth-date" required />
+        </label>
+
+        <label>
+          出生時間
+          <input type="time" id="birth-time" required />
+        </label>
+
+        <label>
+          出生地
+          <input type="text" id="birth-place" placeholder="例：Himeji, Japan" required />
+        </label>
+
+        <button type="submit" id="submit-btn">月と太陽をスキャンする</button>
+      </form>
+
+      <p id="status" class="status"></p>
+    </section>
+
+    <section class="card">
+      <h2>結果</h2>
+      <pre id="result" class="result">ここに結果が表示されます。</pre>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

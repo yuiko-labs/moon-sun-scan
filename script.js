@@ -1,0 +1,46 @@
+﻿const form = document.getElementById("scan-form");
+const statusEl = document.getElementById("status");
+const resultEl = document.getElementById("result");
+const submitBtn = document.getElementById("submit-btn");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const date = document.getElementById("birth-date").value;
+  const time = document.getElementById("birth-time").value;
+  const place = document.getElementById("birth-place").value.trim();
+
+  if (!date || !time || !place) {
+    statusEl.textContent = "入力が足りないよ。3つ全部入れてね。";
+    return;
+  }
+
+  submitBtn.disabled = true;
+  statusEl.textContent = "スキャン中…✨";
+  resultEl.textContent = "";
+
+  try {
+    const res = await fetch("/api/scan", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ date, time, place })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || "取得に失敗しました。");
+    }
+
+    resultEl.textContent = JSON.stringify(data, null, 2);
+    statusEl.textContent = "できたよ✨";
+  } catch (err) {
+    console.error(err);
+    statusEl.textContent = "エラーが起きました。";
+    resultEl.textContent = err.message || "不明なエラーです。";
+  } finally {
+    submitBtn.disabled = false;
+  }
+});
