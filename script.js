@@ -20,12 +20,16 @@ form.addEventListener("submit", async (e) => {
   resultEl.textContent = "";
 
   try {
-    const res = await fetch("/api/scan", {
+    const res = await fetch("https://yuiko-astrology-api-1.onrender.com/calc/v2", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ date, time, place })
+      body: JSON.stringify({
+        date: date,
+        time: time,
+        place: place
+      })
     });
 
     const data = await res.json();
