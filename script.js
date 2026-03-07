@@ -28,14 +28,7 @@ form.addEventListener("submit", async (e) => {
       body: JSON.stringify({ date, time, place })
     });
 
-    const rawText = await res.text();
-
-    let data;
-    try {
-      data = rawText ? JSON.parse(rawText) : {};
-    } catch {
-      data = { raw: rawText };
-    }
+    const data = await res.json();
 
     if (!res.ok) {
       throw new Error(JSON.stringify(data, null, 2));
