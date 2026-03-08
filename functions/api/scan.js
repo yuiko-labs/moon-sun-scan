@@ -24,26 +24,47 @@
       })
     });
 
-    const text = await apiRes.text();
+    const rawText = await apiRes.text();
 
     let data;
     try {
-      data = JSON.parse(text);
+      data = rawText ? JSON.parse(rawText) : null;
     } catch {
-      data = { raw: text };
+      data = { raw: rawText };
     }
 
     if (!apiRes.ok) {
       return json(
         {
           error: "外部APIの呼び出しに失敗しました。",
-          detail: data
+          upstream_status: apiRes.status,
+          upstream_status_text: apiRes.statusText,
+          upstream_body: data
         },
         apiRes.status
       );
     }
 
-    return json(data, 200);
+    if (!rawText) {
+      return json(
+        {
+          error: "上流APIは200を返しましたが、本文が空でした。",
+          upstream_status: apiRes.status,
+          upstream_status_text: apiRes.statusText,
+          sent_body: { date, time, place }
+        },
+        502
+      );
+    }
+
+    return json(
+      {
+        ok: true,
+        upstream_status: apiRes.status,
+        data: data
+      },
+      200
+    );
   } catch (error) {
     return json(
       {
