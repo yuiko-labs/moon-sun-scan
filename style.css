@@ -82,6 +82,36 @@ input:focus {
   box-shadow: 0 0 0 4px rgba(244, 154, 194, 0.18);
 }
 
+.date-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 10px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 400;
+  color: #6a546f;
+  margin-top: 4px;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  margin: 0;
+  flex: 0 0 auto;
+  accent-color: #d98fcb;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.checkbox-row span {
+  line-height: 1.5;
+}
+
 button {
   border: none;
   border-radius: 999px;
@@ -193,8 +223,16 @@ strong {
     font-size: 20px;
   }
 
+  .date-row {
+    grid-template-columns: 1fr;
+  }
+
   .result-grid {
     grid-template-columns: 1fr;
+  }
+
+  .checkbox-row {
+    align-items: flex-start;
   }
 
   button {

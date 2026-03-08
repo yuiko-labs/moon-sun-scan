@@ -12,25 +12,33 @@
       <h1>魔女っ娘★月と太陽スキャン</h1>
       <p class="lead">生年月日・出生時間・出生地から、月と太陽の配置をスキャンするよ✨</p>
 
-      <form id="scan-form" class="form">
-        <label>
-          生年月日
-          <input type="date" id="birth-date" required />
-        </label>
+<form id="scan-form" class="form">
+  <label>
+    生年月日
+    <div class="date-row">
+      <input type="number" id="birth-year" placeholder="1988" min="1000" max="9999" />
+      <input type="number" id="birth-month" placeholder="11" min="1" max="12" />
+      <input type="number" id="birth-day" placeholder="29" min="1" max="31" />
+    </div>
+  </label>
 
-        <label>
-          出生時間
-          <input type="time" id="birth-time" required />
-        </label>
+  <label>
+    出生時間
+    <input type="time" id="birth-time" />
 
-        <label>
-          出生地
-          <input type="text" id="birth-place" placeholder="例：Himeji, Japan" required />
-        </label>
+    <div class="checkbox-row">
+      <input type="checkbox" id="time-unknown">
+      <span>出生時間がわからない（12:00で計算）</span>
+    </div>
+  </label>
 
-        <button type="submit" id="submit-btn">月と太陽をスキャンする</button>
-      </form>
+  <label>
+    出生地
+    <input type="text" id="birth-place" placeholder="例：Himeji, Japan" required />
+  </label>
 
+  <button type="submit" id="submit-btn">月と太陽をスキャンする</button>
+</form>
       <p id="status" class="status"></p>
     </section>
 
