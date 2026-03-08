@@ -15,7 +15,11 @@
       <form id="scan-form" class="form">
         <label>
           生年月日
-          <input type="date" id="birth-date" required />
+          <div class="date-row">
+            <input type="text" id="birth-year" inputmode="numeric" placeholder="1988" maxlength="4" />
+            <input type="text" id="birth-month" inputmode="numeric" placeholder="11" maxlength="2" />
+            <input type="text" id="birth-day" inputmode="numeric" placeholder="29" maxlength="2" />
+          </div>
         </label>
 
         <label>
