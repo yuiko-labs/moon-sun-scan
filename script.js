@@ -168,6 +168,7 @@ function renderResult(data) {
   const sun = data?.planets?.sun;
   const moon = data?.planets?.moon;
   const aspects = Array.isArray(data?.aspects) ? data.aspects : [];
+  const scanComment = data?.comment || "";
 
   const sunMoonAspects = aspects.filter((a) => {
     return a.p1 === "sun" || a.p2 === "sun" || a.p1 === "moon" || a.p2 === "moon";
@@ -188,6 +189,10 @@ function renderResult(data) {
        </details>`
     : "";
 
+  const commentHtml = scanComment
+    ? `<p>${escapeHtml(scanComment)}</p>`
+    : `<p>コメントはまだありません。</p>`;
+
   resultEl.innerHTML = `
     <div class="result-wrap">
       <div class="result-card">
@@ -196,6 +201,11 @@ function renderResult(data) {
         <p><strong>出生時間：</strong>${escapeHtml(data?.input?.time || "-")}</p>
         <p><strong>出生地：</strong>${escapeHtml(data?.input?.place || "-")}</p>
         <p><strong>タイムゾーン：</strong>${escapeHtml(data?.input?.timezone || "-")}</p>
+      </div>
+
+      <div class="result-card">
+        <h2>魔女っ娘コメント</h2>
+        ${commentHtml}
       </div>
 
       <div class="result-grid">
@@ -207,12 +217,6 @@ function renderResult(data) {
         <h2>太陽と月の主要アスペクト</h2>
         ${sunMoonAspectHtml}
         ${otherAspectHtml}
-      </div>
-
-      <div class="result-card">
-        <h2>ひとことメモ</h2>
-        <p>この画面は、まず「太陽」と「月」を見やすく読むための簡易表示です。</p>
-        <p>今後ここに、仕事・家庭・父性・母性などの読み解き文も追加できます。</p>
       </div>
     </div>
   `;
@@ -252,7 +256,7 @@ form.addEventListener("submit", async (e) => {
   resultEl.innerHTML = "";
 
   try {
-    const res = await fetch("https://yuiko-astrology-api-1.onrender.com/calc/v2", {
+    const res = await fetch("https://yuiko-astrology-api-1.onrender.com/scan/comment/v1", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
