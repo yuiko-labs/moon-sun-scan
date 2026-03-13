@@ -25,19 +25,6 @@ const SIGN_JA = {
   Pisces: "魚座"
 };
 
-const PLANET_JA = {
-  sun: "太陽",
-  moon: "月",
-  mercury: "水星",
-  venus: "金星",
-  mars: "火星",
-  jupiter: "木星",
-  saturn: "土星",
-  uranus: "天王星",
-  neptune: "海王星",
-  pluto: "冥王星"
-};
-
 function escapeHtml(str) {
   return String(str ?? "")
     .replaceAll("&", "&amp;")
@@ -49,10 +36,6 @@ function escapeHtml(str) {
 
 function signJa(sign) {
   return SIGN_JA[sign] || sign || "-";
-}
-
-function planetJa(name) {
-  return PLANET_JA[name] || name || "-";
 }
 
 function pad2(value) {
@@ -149,45 +132,10 @@ function formatPlanetBlock(title, planet) {
   `;
 }
 
-function formatAspectItem(a) {
-  const p1 = planetJa(a.p1);
-  const p2 = planetJa(a.p2);
-  const type = a.type_label_ja || a.type || "-";
-  const comment = a.comment || "";
-
-  return `
-    <li>
-      <strong>${escapeHtml(p1)} × ${escapeHtml(p2)}</strong><br>
-      ${escapeHtml(type)}<br>
-      ${escapeHtml(comment)}
-    </li>
-  `;
-}
-
 function renderResult(data) {
   const sun = data?.planets?.sun;
   const moon = data?.planets?.moon;
-  const aspects = Array.isArray(data?.aspects) ? data.aspects : [];
   const scanComment = data?.comment || "";
-
-  const sunMoonAspects = aspects.filter((a) => {
-    return a.p1 === "sun" || a.p2 === "sun" || a.p1 === "moon" || a.p2 === "moon";
-  });
-
-  const otherAspects = aspects.filter((a) => {
-    return !(a.p1 === "sun" || a.p2 === "sun" || a.p1 === "moon" || a.p2 === "moon");
-  });
-
-  const sunMoonAspectHtml = sunMoonAspects.length
-    ? `<ul class="aspect-list">${sunMoonAspects.map(formatAspectItem).join("")}</ul>`
-    : `<p>太陽・月に関する主要アスペクトはありません。</p>`;
-
-  const otherAspectHtml = otherAspects.length
-    ? `<details>
-         <summary>その他のアスペクトも見る</summary>
-         <ul class="aspect-list">${otherAspects.map(formatAspectItem).join("")}</ul>
-       </details>`
-    : "";
 
   const commentHtml = scanComment
     ? `<p>${escapeHtml(scanComment)}</p>`
@@ -211,12 +159,6 @@ function renderResult(data) {
       <div class="result-grid">
         ${formatPlanetBlock("太陽", sun)}
         ${formatPlanetBlock("月", moon)}
-      </div>
-
-      <div class="result-card">
-        <h2>太陽と月の主要アスペクト</h2>
-        ${sunMoonAspectHtml}
-        ${otherAspectHtml}
       </div>
     </div>
   `;
