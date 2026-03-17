@@ -16,17 +16,44 @@
       <div class="hero">
         <img
           class="hero-image"
-          src="./images/sun-moon-scan.png.png"
+          src="./images/sun-moon-scan.png"
           alt="魔女っ娘★月と太陽スキャン"
         />
       </div>
 
       <h1>魔女っ娘★月と太陽スキャン</h1>
 
-      <p class="lead">
-        AI占星術で、あなたの出生図の入り口をやさしく解説します✨<br />
-        まずは太陽と月から、あなたらしさをスキャンしてみましょう。
-      </p>
+      <div class="lead">
+        <p>たどり着いてくれてありがとうございます✨</p>
+
+        <p>
+          わたしは<br />
+          星を読む魔女っ娘です🌙
+        </p>
+
+        <p>
+          ここではあなたの<br />
+          ☀ 太陽<br />
+          🌙 月<br />
+          から、性格の核や本音の傾向を<br />
+          やさしく読み解いていきます。
+        </p>
+
+        <p>
+          太陽は、社会で輝くあなた。<br />
+          月は、心の奥にある本当のあなた。
+        </p>
+
+        <p>
+          この2つを合わせて見ると、<br />
+          あなたらしさの輪郭が少しずつ見えてきます✨
+        </p>
+
+        <p>
+          まずは下のフォームから、<br />
+          あなたの星をスキャンしてみましょう🌙
+        </p>
+      </div>
 
       <form id="scan-form" class="form">
         <label>
@@ -83,123 +110,6 @@
           />
         </label>
 
-        <button id="submit-btn" type="submit">月と太陽をスキャンする</button>
-      </form>
-
-      <p id="status" class="status"></p>
-    </section>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>魔女っ娘★月と太陽スキャン</title>
-  <meta
-    name="description"
-    content="AI占星術で、あなたの出生図の入り口をやさしく読み解く月と太陽の診断サイト"
-  />
-  <link rel="stylesheet" href="./style.css" />
-</head>
-<body>
-  <main class="wrap">
-    <section class="card">
-      <div class="hero">
-        <img
-          class="hero-image"
-          src="./images/sun-moon-scan.png"
-          alt="魔女っ娘★月と太陽スキャン"
-        />
-      </div>
-
-      <h1>魔女っ娘★月と太陽スキャン</h1>
-
-      <div class="lead">
-        <p>たどり着いてくれてありがとうございます✨</p>
-
-        <p>
-          わたしは<br />
-          星を読む魔女っ娘です🌙
-        </p>
-
-        <p>
-          ここではあなたの<br />
-          ☀ 太陽<br />
-          🌙 月<br />
-          から、性格の核や本音の傾向を<br />
-          やさしく読み解いていきます。
-        </p>
-
-        <p>
-          太陽は、社会で輝くあなた。<br />
-          月は、心の奥にある本当のあなた。
-        </p>
-
-        <p>
-          この2つを合わせて見ると、<br />
-          あなたらしさの輪郭が少しずつ見えてきます✨
-        </p>
-
-        <p>
-          まずは下のフォームから、<br />
-          あなたの星をスキャンしてみましょう🌙
-        </p>
-      </div>
-
-      <form id="scan-form" class="form">
-        <label>
-          生年月日
-          <div class="date-row">
-            <input
-              id="birth-year"
-              type="text"
-              inputmode="numeric"
-              autocomplete="bday-year"
-              placeholder="年"
-              maxlength="4"
-            />
-            <input
-              id="birth-month"
-              type="text"
-              inputmode="numeric"
-              autocomplete="bday-month"
-              placeholder="月"
-              maxlength="2"
-            />
-            <input
-              id="birth-day"
-              type="text"
-              inputmode="numeric"
-              autocomplete="bday-day"
-              placeholder="日"
-              maxlength="2"
-            />
-          </div>
-        </label>
-
-        <label>
-          出生時間
-          <input
-            id="birth-time"
-            type="time"
-            autocomplete="off"
-          />
-        </label>
-
-        <label class="checkbox-row">
-          <input id="time-unknown" type="checkbox" />
-          <span>出生時間がわからない（12:00で計算）</span>
-        </label>
-
-        <label>
-          出生地
-          <input
-            id="birth-place"
-            type="text"
-            autocomplete="address-level2"
-            placeholder="例：Tokyo, Japan"
-          />
-        </label>
-
         <button id="submit-btn" type="submit">🌙 月と太陽をスキャンする</button>
 
         <p class="scan-note">
@@ -211,15 +121,6 @@
       <p id="status" class="status"></p>
     </section>
 
-    <section class="card">
-      <h2>結果</h2>
-      <div id="result" class="result">ここに結果が表示されます。</div>
-    </section>
-  </main>
-
-  <script src="./script.js"></script>
-</body>
-</html>
     <section class="card">
       <h2>結果</h2>
       <div id="result" class="result">ここに結果が表示されます。</div>
