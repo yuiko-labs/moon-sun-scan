@@ -10,7 +10,7 @@ const birthTimeEl = document.getElementById("birth-time");
 const birthPlaceEl = document.getElementById("birth-place");
 const timeUnknownEl = document.getElementById("time-unknown");
 
-const NOTE_FREE_ARTICLE_URL = "https://note.com/preview/nc2cb7cb1715b?prev_access_key=0bba3df13acae3ba9f5e5a274736db02";
+const NOTE_FREE_ARTICLE_URL = "https://note.com/preview/n6d6bc3728de3?prev_access_key=5fb0891c1264bad4a7f5d21cd26e87da";
 
 const SIGN_JA = {
   Aries: "牡羊座",
