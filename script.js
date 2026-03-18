@@ -183,9 +183,9 @@ function buildNoteCta() {
   if (!isReady) {
     return `
       <div class="result-card cta-card">
-        <h2>この診断はまだ入口です</h2>
+        <h2>太陽と月の意味をもっと知る</h2>
         <p>
-          太陽と月の意味や星読みの考え方を、
+          星読みの考え方を、
           やさしくまとめたnote記事があります ✨
         </p>
         <p class="cta-sub">
@@ -198,9 +198,9 @@ function buildNoteCta() {
 
   return `
     <div class="result-card cta-card">
-      <h2>この診断はまだ入口です</h2>
+      <h2>太陽と月の意味をもっと知る</h2>
       <p>
-        太陽と月の意味や星読みの考え方を、
+        星読みの考え方を、
         やさしくまとめたnote記事があります ✨
       </p>
       <p class="cta-arrow">👇</p>
