@@ -163,11 +163,9 @@ function buildInsightLead(sun, moon) {
 function buildTeaserCard() {
   return `
     <div class="result-card teaser-card">
-      <h2>この先も、まだ面白い</h2>
+      <h2>ここからが面白い</h2>
       <p>
-        太陽と月の組み合わせには、
-        恋愛傾向、才能、人との関わり方、人生テーマなど、
-        まだまだ読み解けるポイントがあります。
+        太陽と月には、性格や本音、人との関わり方を読むヒントがあります。
       </p>
       <p class="teaser-note">
         ここでは入り口だけ。
@@ -185,10 +183,10 @@ function buildNoteCta() {
   if (!isReady) {
     return `
       <div class="result-card cta-card">
-        <h2>もっと詳しく見たい方はこちら</h2>
+        <h2>この診断はまだ入口です</h2>
         <p>
-          太陽と月の組み合わせから見える性格の傾向や、
-          出生図の面白さを無料note記事で読める導線をここに入れます。
+          太陽と月の意味や星読みの考え方を、
+          やさしくまとめたnote記事があります ✨
         </p>
         <p class="cta-sub">
           ※ 今は note のURLが未設定です。script.js の
@@ -200,18 +198,19 @@ function buildNoteCta() {
 
   return `
     <div class="result-card cta-card">
-      <h2>もっと詳しく見たい方はこちら</h2>
+      <h2>この診断はまだ入口です</h2>
       <p>
-        太陽と月の組み合わせから見える性格の傾向、
-        才能、人との関わり方などを無料note記事でやさしく読めます✨
+        太陽と月の意味や星読みの考え方を、
+        やさしくまとめたnote記事があります ✨
       </p>
+      <p class="cta-arrow">👇</p>
       <a
         class="cta-link"
         href="${NOTE_FREE_ARTICLE_URL}"
         target="_blank"
         rel="noopener noreferrer"
       >
-        無料note記事を読む
+        続きを読む
       </a>
     </div>
   `;
