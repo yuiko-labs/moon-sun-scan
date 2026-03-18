@@ -169,7 +169,7 @@ function buildTeaserCard() {
       </p>
       <p class="teaser-note">
         ここでは入り口だけ。
-        続きは、もっとやさしく読める形で見にいけます✨
+        太陽と月の意味は、もっとやさしくまとめた記事で読めます✨
       </p>
     </div>
   `;
@@ -241,7 +241,7 @@ function buildShareButtons(sun, moon) {
     <div class="share-block">
       <h2>診断結果をシェア</h2>
       <p class="share-text">
-        面白かったら、太陽と月の組み合わせをシェアしてみてね✨
+        面白かったら、あなたの太陽×月の組み合わせをシェアしてみてね✨
       </p>
       <div class="action-buttons">
         <a
